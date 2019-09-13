@@ -23,7 +23,6 @@ namespace ProductMicroservice
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<ProductContext>(o => o.UseSqlServer(Configuration.GetConnectionString("ProductDB")));
-            services.AddDbContext<AccountContext>(o => o.UseSqlServer(Configuration.GetConnectionString("AccountDB")));
             services.AddTransient<IProductRepository, ProductRepository>();
         }
 
