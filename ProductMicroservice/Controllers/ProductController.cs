@@ -27,7 +27,7 @@ namespace ProductMicroservice.Controllers
         }
 
         // GET: api/Product/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetProduct")]
         public IActionResult Get(int id)
         {
             var product = _productRepository.GetProductByID(id);
@@ -70,4 +70,7 @@ namespace ProductMicroservice.Controllers
             return new OkResult();
         }
     }
+        
 }
+
+
