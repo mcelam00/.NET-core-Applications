@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+//Es la parte donde llega la request
 namespace Weather_Forecast_React_ASPNET_App.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [Route("[controller]")] //para esta ruta definen un weatherForecast (esta clase)
+    public class WeatherForecastController : ControllerBase 
     {
         private static readonly string[] Summaries = new[]
         {
@@ -24,9 +25,9 @@ namespace Weather_Forecast_React_ASPNET_App.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<WeatherForecast> Get() //crean un random set de los valores de weather de arriba y lo retornan como respuesta al usuario. La clase weatherForecast está en el .cs
         {
-            var rng = new Random();
+            var rng = new Random(); //aqui se crea un objeto, que después en el return se serializa por defecto como json.
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
